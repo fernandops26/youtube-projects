@@ -1,20 +1,14 @@
 import { useEffect, useState } from 'react'
 import UserLinks from './UserLinks'
 import { supabase } from './../utils/supabaseClient'
+import { SignOut, useUser } from '../hooks/authUser'
 
 export default function UserArea() {
-    const [user, setUser] = useState(null)
-
-    useEffect(() => {
-        setUser(supabase.auth.user())
-    }, [])
+    const { user } = useUser()
 
     const handleLogout = async () => {
         try {
-            const { error } = await supabase.auth.signOut()
-
-            if (error) throw error
-
+            SignOut()
         } catch(e) {
             alert(e.message)
         }
