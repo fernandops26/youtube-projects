@@ -63,8 +63,6 @@ export default function Home({ lastUpdated, videos }) {
             </div>
           </div>
         </div>
-      
-
       </main>
     </div>
   )

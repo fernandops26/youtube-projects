@@ -23,21 +23,21 @@ export default function Table({ columns = [], data = [] }) {
                 </tr>
                 ))}
             </thead>
-        <tbody {...getTableBodyProps()} className='bg-white divide-y divide-gray-200'>
-            {
-                rows.map((row, i) => {
-                    prepareRow(row)
-                
-                    return (
-                        <tr {...row.getRowProps()}>
-                            {row.cells.map(cell => {
-                                return <td {...cell.getCellProps()} className='px-6 py-4 whitespace-nowrap'>{cell.render('Cell')}</td>
-                            })}
-                        </tr>
-                    )
-                })
-            }
-        </tbody>
+            <tbody {...getTableBodyProps()} className='bg-white divide-y divide-gray-200'>
+                {
+                    rows.map((row, i) => {
+                        prepareRow(row)
+                    
+                        return (
+                            <tr {...row.getRowProps()}>
+                                {row.cells.map(cell => {
+                                    return <td {...cell.getCellProps()} className='px-6 py-4 whitespace-nowrap'>{cell.render('Cell')}</td>
+                                })}
+                            </tr>
+                        )
+                    })
+                }
+            </tbody>
         </table>
     )
 }
