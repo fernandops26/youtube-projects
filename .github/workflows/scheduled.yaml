@@ -1,0 +1,14 @@
+name: Schedule update youtube video list
+on:
+  schedule:
+    - cron: '*/60 * * * *'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Updater cron job
+        run: |
+          curl --request POST \
+          --url '${{ secrets.APP_ENDPOINT }}' \
+          --header 'Authorization: Bearer ${{ secrets.APP_KEY }}'
+
