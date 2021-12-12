@@ -14,7 +14,10 @@ export const getContent = () => {
 
 const readFile = () => {
   if (!fs.existsSync(filePath)) {
-    return {}
+    return {
+      lastUpdated: (new Date()).toISOString(),
+      videos: []
+    }
   }
 
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'))
